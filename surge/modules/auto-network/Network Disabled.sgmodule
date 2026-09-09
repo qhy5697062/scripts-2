@@ -1,0 +1,24 @@
+#!name=Network Disabled
+#!desc=设置 包含所有网络请求
+#!category=Network
+
+# 默认情况下，部分请求可能不会被 Surge 接管。比如应用可以强行绑定物理网卡以绕过 Surge VIF。开启该选项后可以保证所有请求都由Surge所接管，没有泄漏，此时可将 Surge 当做防火墙使用。
+# 如果还想让 Surge 处理所有本地网络的请求，可开启包含本地网络请求选项。
+# 开启这些选项会引起严重的副作用，如 AirDrop、Xcode Debugger、Surge Dashboard USB 模式等无法正常使用，请仅在需要的特定情况下开启。
+
+[General]
+
+# > 包含所有网络请求
+include-all-networks = false
+
+# > 包含本地网络请求
+include-local-networks = true
+
+# > 包含APNS
+include-apns = true
+
+# > 包含蜂窝服务
+include-cellular-services = true
+
+[Script]
+Network Auto = type=event,event-name=network-changed,script-path=Network Auto.js,engine=jsc

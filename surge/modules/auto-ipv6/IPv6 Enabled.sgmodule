@@ -1,0 +1,10 @@
+#!name=IPv6 Enabled
+#!desc=
+#!category=IPv6
+
+[General]
+ipv6 = true
+ipv6-vif = auto
+
+[Script]
+IPv6 Auto = type=event,event-name=network-changed,script-path=IPv6 Auto.js,engine=jsc
